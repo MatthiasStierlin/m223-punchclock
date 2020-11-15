@@ -29,4 +29,8 @@ public class EntryService {
     public List<Entry> findAll() {
         return entryRepository.findAll();
     }
+
+    public Entry updateEntry(Entry entry) {
+        return entryRepository.save(entry);
+    }
 }
