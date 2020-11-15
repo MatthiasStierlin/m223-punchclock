@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author Matthias Stierlin
+ * @version 13.11.2020
+ */
 @Service
 public class EntryService {
     private EntryRepository entryRepository;
@@ -16,6 +20,10 @@ public class EntryService {
 
     public Entry createEntry(Entry entry) {
         return entryRepository.saveAndFlush(entry);
+    }
+
+    public void deleteEntry(long id) {
+        entryRepository.deleteById(id);
     }
 
     public List<Entry> findAll() {
