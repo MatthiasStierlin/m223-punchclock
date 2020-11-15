@@ -10,6 +10,8 @@ import javax.ws.rs.Path;
 import java.util.List;
 
 /**
+ * EntryService
+ *
  * @author Matthias Stierlin
  * @version 13.11.2020
  */

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
+ * EntryService
+ *
  * @author Matthias Stierlin
  * @version 13.11.2020
  */
