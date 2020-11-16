@@ -37,6 +37,7 @@ public class EntryController {
     }
 
     @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public Entry updateEntry(@PathVariable long id, @Valid @RequestBody Entry entry) {
         entry.setId(id);
         return entryService.updateEntry(entry);
