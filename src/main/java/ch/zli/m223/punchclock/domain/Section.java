@@ -1,6 +1,10 @@
 package ch.zli.m223.punchclock.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.glassfish.jersey.jaxb.internal.XmlJaxbElementProvider;
+
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Section
@@ -11,6 +15,7 @@ import javax.persistence.*;
  * @version 16.11.2020
  */
 @Entity
+@JsonIgnoreProperties({"applicationUser"})
 public class Section {
 
     @Id
@@ -22,6 +27,9 @@ public class Section {
 
     @Column(nullable = false)
     private String description;
+
+    @OneToMany
+    private Set<ApplicationUser> applicationUser;
 
     public Long getSectionId() {
         return sectionId;
@@ -45,5 +53,13 @@ public class Section {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<ApplicationUser> getApplicationUser() {
+        return applicationUser;
+    }
+
+    public void setApplicationUser(Set<ApplicationUser> applicationUser) {
+        this.applicationUser = applicationUser;
     }
 }

@@ -23,24 +23,43 @@ public class SectionController {
         this.sectionService = sectionService;
     }
 
+    /** Creates a new section.
+     *
+     * @param section
+     * @return
+     */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Section createSection(@Valid @RequestBody Section section) {
         return sectionService.createSection(section);
     }
 
+    /** Gets all sections.
+     *
+     * @return
+     */
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Section> getAllSections() {
         return sectionService.getAllSections();
     }
 
+    /** Deletes an existing section.
+     *
+     * @param sectionId
+     */
     @DeleteMapping("/{sectionId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteSection(@PathVariable Long sectionId) {
         sectionService.deleteSection(sectionId);
     }
 
+    /** Updates an existing section.
+     *
+     * @param sectionId
+     * @param section
+     * @return
+     */
     @PutMapping("/{sectionId}")
     @ResponseStatus(HttpStatus.OK)
     public Section updateSection(@PathVariable Long sectionId, @Valid @RequestBody Section section) {

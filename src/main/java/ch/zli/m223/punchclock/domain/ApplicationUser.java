@@ -1,9 +1,9 @@
 package ch.zli.m223.punchclock.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * ApplicationUser
@@ -17,8 +17,18 @@ public class ApplicationUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(nullable = false)
     private String username;
+
+    @Column(nullable = false)
     private String password;
+
+    @OneToOne
+    private Section section;
+
+    @ManyToMany
+    private Set<Project> project;
 
     public long getId() {
         return id;
@@ -42,5 +52,21 @@ public class ApplicationUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
+    }
+
+    public Set<Project> getProject() {
+        return project;
+    }
+
+    public void setProject(Set<Project> project) {
+        this.project = project;
     }
 }

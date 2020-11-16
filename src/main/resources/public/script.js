@@ -138,4 +138,51 @@ document.addEventListener('DOMContentLoaded', function(){
     const createEntryForm = document.querySelector('#createEntryForm');
     createEntryForm.addEventListener('submit', saveForm);
     indexEntries();
+
+    const login = document.querySelector('#login');
+    login.addEventListener('submit', loginForm);
+
+    const registration = document.querySelector('#registrationForm');
+    registration.addEventListener('submit', registrationForm);
+
 });
+
+const loginForm = (applicationUser) => {
+    applicationUser.preventDefault();
+    const loginFormData = new FormData(applicationUser.target);
+    const loginData = {};
+    loginData['username'] = loginFormData.get('username');
+    loginData['password'] = loginFormData.get('password');
+
+    fetch(`${URL}/login`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(loginData)
+    }).then(() => {
+            alert(`You are now logged in!`);
+            document.getElementById("login").reset();
+            renderEntries();
+        });
+};
+
+const registrationForm = (newUser) => {
+    newUser.preventDefault();
+    const registrationFormData = new FormData(newUser.target);
+    const registrationData = {};
+    registrationData['username'] = registrationFormData.get('usernameReg');
+    registrationData['password'] = registrationFormData.get('passwordReg');
+    
+    fetch(`${URL}/users/sign-up`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(registrationData)
+    }).then(() => {
+        alert(`You are now a registered user!`);
+        document.getElementById("registrationForm").reset();
+        renderEntries();
+    });
+};

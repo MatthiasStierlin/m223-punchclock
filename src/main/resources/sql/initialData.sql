@@ -19,8 +19,24 @@ insert into entry (check_in, check_out) values ('2020-11-08 10:42:00','2020-11-1
 insert into entry (check_in, check_out) values ('2020-11-06 12:22:00','2020-11-19 11:12:00');
 insert into entry (check_in, check_out) values ('2020-11-04 11:12:00','2020-11-19 11:12:00');
 
-insert into application_user (username, password) values ('max.muster','test@test.ch');
-insert into application_user (username, password) values ('peter.mueller','test@test.ch');
-insert into application_user (username, password) values ('lili.koch','test@test.ch');
-insert into application_user (username, password) values ('jamie.oliver','test@test.ch');
-insert into application_user (username, password) values ('test.test','test@test.ch');
+insert into application_user (username, password, section_section_id) values ('max.muster','test@test.ch',1);
+insert into application_user (username, password, section_section_id) values ('peter.mueller','test@test.ch',2);
+insert into application_user (username, password, section_section_id) values ('lili.koch','test@test.ch',3);
+insert into application_user (username, password, section_section_id) values ('jamie.oliver','test@test.ch',5);
+insert into application_user (username, password, section_section_id) values ('test.test','test@test.ch',3);
+insert into application_user (username, password, section_section_id) values ('martha.sutter','test@test.ch',4);
+
+insert into section_application_user (section_section_id, application_user_id) values ('1','1');
+insert into section_application_user (section_section_id, application_user_id) values ('2','2');
+insert into section_application_user (section_section_id, application_user_id) values ('3','3');
+insert into section_application_user (section_section_id, application_user_id) values ('5','4');
+insert into section_application_user (section_section_id, application_user_id) values ('3','5');
+insert into section_application_user (section_section_id, application_user_id) values ('4','6');
+
+insert into application_user_project (application_user_id, project_projectid) values ('4','1');
+insert into application_user_project (application_user_id, project_projectid) values ('4','2');
+insert into application_user_project (application_user_id, project_projectid) values ('4','3');
+insert into application_user_project (application_user_id, project_projectid) values ('6','2');
+insert into application_user_project (application_user_id, project_projectid) values ('5','1');
+insert into application_user_project (application_user_id, project_projectid) values ('5','2');
+

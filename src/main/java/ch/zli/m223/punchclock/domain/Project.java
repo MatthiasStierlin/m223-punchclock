@@ -1,6 +1,7 @@
 package ch.zli.m223.punchclock.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Project
@@ -13,13 +14,16 @@ public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long projectID;
+    private Long projectID;
 
     @Column(nullable = false)
-    String name;
+    private String name;
 
     @Column(nullable = false)
-    String description;
+    private String description;
+
+    @ManyToMany
+    private Set<ApplicationUser> applicationUser;
 
     public Long getProjectID() {
         return projectID;
@@ -43,5 +47,13 @@ public class Project {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<ApplicationUser> getApplicationUser() {
+        return applicationUser;
+    }
+
+    public void setApplicationUser(Set<ApplicationUser> applicationUser) {
+        this.applicationUser = applicationUser;
     }
 }
