@@ -1,5 +1,11 @@
 # M223: Punchclock
-Dies ist eine Beispielapplikation für das Modul M223.
+Dies ist ein Fork der Beispielapplikation PunchClock für das Modul M223 der ZLI.
+
+Die Applikation kann folgendes tun:
+* Sie können sich registrieren und anmelden.
+* Sie können ihre arbeitszeiten erfassen.
+* Sie können die Abteilungen ihrer Firma verwalten.
+* Sie können die Projekte ihrer Firma verwalten.
 
 ## Loslegen
 Folgende Schritte befolgen um loszulegen:
